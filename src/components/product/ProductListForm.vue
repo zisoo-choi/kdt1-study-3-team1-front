@@ -16,7 +16,7 @@
         </tr>
         <tr v-if="products || (Array.isArray(products) && products.length === 0)">
             <td colspan="3">
-                현재 등록된 상품이 없습니다!
+                로딩 중입니다.
             </td>
         </tr>
         <tr v-else v-for="product in products" :key="product.productId">
