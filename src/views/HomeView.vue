@@ -1,15 +1,15 @@
-<template>
-  <hello-world />
+<template lang="">
+  <div>
+    <router-link :to="{ name: 'SignUpPage' }">
+      <v-btn color="primary">회원 가입</v-btn>
+    </router-link>
+  </div>
 </template>
-
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-    },
-  }
+export default {
+  
+}
 </script>
+<style lang="">
+  
+</style>
