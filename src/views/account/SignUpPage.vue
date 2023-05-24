@@ -17,6 +17,7 @@
     methods: {
       ...mapActions(accountModule, ["requestCreateAccountToSpring"]),
       async createAccount(payload) {
+        console.log(payload)
         await this.requestCreateAccountToSpring(payload);
         await this.$router.push({
           name: "home",
