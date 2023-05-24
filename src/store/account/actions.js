@@ -2,9 +2,9 @@ import axiosInst from "@/utility/axiosInst";
 
 export default {
   requestCreateAccountToSpring({}, payload) {
-    const { email, password } = payload;
+    const { email, roleType, password } = payload;
     return axiosInst
-      .post("shopping/create-account", { email, password })
+      .post("shopping/create-account", { email, roleType, password })
       .then((res) => {
         if (res.data) {
           alert("가입 성공!");
