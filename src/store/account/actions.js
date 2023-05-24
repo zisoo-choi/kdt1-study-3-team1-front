@@ -13,4 +13,18 @@ export default {
         }
       });
   },
+  requestLoginToSpring({}, payload) {
+    const { email, password } = payload;
+    return axiosInst
+      .post("shopping/login", { email, password })
+      .then((res) => {
+        if (res.data != null) {
+          alert("로그인 성공!");
+          let token = res.data.token;
+          localStorage.setItem("loginUserToken", token);
+        } else {
+          alert("로그인 실패!");
+        }
+      });
+  },
 };
