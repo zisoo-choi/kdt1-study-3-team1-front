@@ -1,4 +1,5 @@
 module.exports = {
+    extends: 'standard',
     env: {
         browser: true,
         es2021: true
