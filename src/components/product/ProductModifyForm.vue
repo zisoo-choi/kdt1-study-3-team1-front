@@ -1,7 +1,6 @@
 <template lang="">
     <div>
         <form @submit.prevent="onSubmit">
-            <form @submit.prevent="onSubmit">
             <table>
                 <tr>
                     <td>상품 번호</td>
