@@ -20,8 +20,8 @@ export default {
       .then((res) => {
         if (res.data != null) {
           alert("로그인 성공!");
-          let token = res.data.token;
-          localStorage.setItem("loginUserToken", token);
+          let accountId = res.data.accountId;
+          localStorage.setItem("loginUserId", accountId);
         } else {
           alert("로그인 실패!");
         }

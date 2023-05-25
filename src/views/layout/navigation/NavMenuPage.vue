@@ -22,7 +22,7 @@
     data() {
       return {
         isLogin: false,
-        userToken: 0,
+        accountId: 0,
       };
     },
     methods: {
@@ -39,8 +39,8 @@
       }
     },
     mounted () {
-      this.userToken = localStorage.getItem("loginUserToken")
-      if (this.userToken > 0) {
+      this.accountId = localStorage.getItem("loginUserId")
+      if (this.accountId > 0) {
           this.isLogin = true
       }
     }
