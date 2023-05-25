@@ -10,7 +10,7 @@
                 <tr>
                     <td>상품명</td>
                     <td>
-                        <input type="text" v-model="productTitle"/>
+                        <input type="text" v-model="productName"/>
                     </td>
                 </tr>
                 <tr>
@@ -32,14 +32,14 @@
 export default {
     data () {
         return {
-            productTitle: '상품명을 입력하세요',
+            productName: '상품명을 입력하세요',
             productPrice: 0,
         }
     },
     methods: {
         onSubmit () {
-            const { productTitle, productPrice } = this
-            this.$emit('submit', { productTitle, productPrice })
+            const { productName, productPrice, token } = this
+            this.$emit('submit', { productName, productPrice, token })
         }
     }
 }
