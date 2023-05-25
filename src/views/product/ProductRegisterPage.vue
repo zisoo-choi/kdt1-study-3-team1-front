@@ -23,7 +23,7 @@ export default {
             const product = await this.requestRegisterProductToSpring(payload)
             await this.$router.push({
                 name: 'ProductReadPage',
-                params: { productId: product.data.productId.toString()}
+                params: { productId: product.data.productId.toString() }
             })
         }
     },

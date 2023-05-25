@@ -20,9 +20,9 @@ export default {
     },
     requestRegisterProductToSpring ({}, payload) {
 
-        const { productName, productPrice, email } = payload
+        const { productName, productPrice, token } = payload
 
-        return axiosInst.post('/shopping/product-register', { productName, productPrice, email})
+        return axiosInst.post('/shopping/product-register', { productName, productPrice, token})
         .then((res) => {
             alert('상품 등록 성공!')
             return res
