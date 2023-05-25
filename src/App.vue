@@ -1,30 +1,25 @@
 <template>
   <v-app>
     <v-main>
+      <NavMenuPage/>
       <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import NavMenuPage from './views/layout/navigation/NavMenuPage.vue';
+
 
 export default {
-  name: "App",
-
-  data: () => ({
+    name: "App",
+    data: () => ({
     //
-  }),
+    }),
+    components: { NavMenuPage }
 };
 </script>
 
-<style scoped>
-
-div {
-  margin: 30px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+<style>
 
 </style>
