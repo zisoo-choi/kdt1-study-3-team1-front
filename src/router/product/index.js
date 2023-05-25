@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import ProductListPage from "@/views/product/ProductListPage.vue"
 import ProductRegisterPage from "@/views/product/ProductRegisterPage.vue"
 import ProductModifyPage from "@/views/product/ProductModifyPage.vue"
+import ProductReadPage from "@/views/product/ProductReadPage.vue"
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,16 @@ const productRoutes = [
         path: "/product-modify-page",
         name: "ProductModifyPage",
         component: ProductModifyPage,
+      },
+      {
+        path: "/product-read-page",
+        name: "ProductReadPage",
+        components: {
+            default: ProductReadPage,
+        },
+        props: {
+            default: true,
+        }
       },
 ]
 

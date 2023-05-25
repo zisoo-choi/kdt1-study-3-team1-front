@@ -19,7 +19,7 @@ export default {
     components: { ProductListForm },
     data () {
         return {
-            isBusiness: false,
+            isBusiness: false, 
         }
     },
     computed: {
