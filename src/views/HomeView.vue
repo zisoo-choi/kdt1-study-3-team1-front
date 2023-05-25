@@ -30,7 +30,7 @@ export default {
     },
   },
   mounted() {
-    if (localStorage.getItem("loginUserToken") == null) {
+    if (localStorage.getItem("loginUserId") == null) {
       this.isLoggedIn = false;
     } else {
       this.isLoggedIn = true;
