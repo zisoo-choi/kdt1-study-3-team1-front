@@ -38,8 +38,8 @@ export default {
     },
     methods: {
         onSubmit () {
-            const { productName, productPrice, token } = this
-            this.$emit('submit', { productName, productPrice, token })
+            const { productName, productPrice, accountId } = this
+            this.$emit('submit', { productName, productPrice, accountId })
         }
     }
 }

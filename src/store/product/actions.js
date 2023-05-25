@@ -22,7 +22,7 @@ export default {
 
         const { productName, productPrice, token } = payload
 
-        return axiosInst.post('/shopping/product-register', { productName, productPrice, token})
+        return axiosInst.post('/shopping/product-register', { productName, productPrice, accountId})
         .then((res) => {
             alert('상품 등록 성공!')
             return res

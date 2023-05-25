@@ -12,7 +12,7 @@
             <v-btn color="blue lighten-1">돌아가기</v-btn> 
             </router-link>
 
-            <v-btn v-if="userToken">
+            <v-btn v-if="isBusiness">
                 <router-link :to="{
                     name: 'OrderConfirmaitionPage',
                     params: { productId }
@@ -33,7 +33,7 @@ const productModule = 'productModule'
 export default {
     data() {
         return{
-            userToken: localStorage.getItem('loginUserToken')
+            roleType: localStorage.getItem('roleType')
         }
     },
     components: {
@@ -53,6 +53,11 @@ export default {
     },
     mounted() {
         this.requestProductToSpring(this.productId)
+        if (localStorage.getItem("roleType") == BUSINESS) {
+            this.isBusiness = false;
+            } else {
+            this.isBusiness = true;
+            }
     }
 }
 </script>

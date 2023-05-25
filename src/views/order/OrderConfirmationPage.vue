@@ -22,7 +22,7 @@ export default {
 
         methods: {
         async onSubmit (payload) {
-            const product = await this.requestOrderToSpring(payload)
+            await this.requestOrderToSpring(payload)
         }},   
     },
 
@@ -32,6 +32,7 @@ export default {
 
     mounted() {
         this.requestProductToSpring(this.productId)
+        
     }
 }
 </script>
