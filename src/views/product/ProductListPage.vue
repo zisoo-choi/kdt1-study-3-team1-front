@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h2> 상품 게시판 </h2>
-        <div style="text-align: left; margine: 15px;" v-if="isBusiness">
+        <div style="text-align: left; margine: 15px;" v-if="Business">
             <router-link :to="{ name: 'ProductRegisterPage' }">
                     상품 등록
             </router-link>
@@ -19,7 +19,7 @@ export default {
     components: { ProductListForm },
     data () {
         return {
-            isBusiness: false, 
+            Business: ' ', 
         }
     },
     computed: {

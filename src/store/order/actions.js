@@ -3,8 +3,8 @@ import axiosInst from '@/utility/axiosInst'
 export default {
 
     requestOrderToSpring ({}, payload) {
-        const { productName, productPrice, token } = payload
-        return axiosInst.post('/shopping/order', { productName, productPrice, token})
+        const { productName, productPrice, accountId } = payload
+        return axiosInst.post('/shopping/order', { productName, productPrice, accountId})
         .then((res) => {
             alert('상품 구매 성공!')
             return res

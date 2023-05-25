@@ -14,7 +14,7 @@
         </div>
         <v-btn @click="onSubmit">구매</v-btn> 
         <button>
-            <router-link :to="{ name: 'home' }">
+            <router-link :to="{ name: 'ProductListPage' }">
                 돌아가기
             </router-link>            
         </button>
@@ -27,7 +27,7 @@
 export default {
     data () {
         return {
-            userToken: localStorage.getItem('loginUserToken')
+            accountId: localStorage.getItem('accountId')
         }
     },
     props: {
@@ -38,8 +38,8 @@ export default {
     },
     methods: {
         onSubmit () {
-            const { productName, productPrice, userToken } = this
-            this.$emit('submit', { productName, productPrice, userToken })
+            const { productId, accountId } = this
+            this.$emit('submit', { productId, accountId })
         }
     }
 }
