@@ -26,7 +26,13 @@
     },
   };
   </script>
-  <style>
-
+  <style scoped>
+    div {
+      margin: 30px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
   </style>
   

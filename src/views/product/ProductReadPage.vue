@@ -1,5 +1,5 @@
 <template lang="">
-    <div>
+    <div align="center">
         <h2>상품 정보</h2>
         <ProductReadForm v-if="product" :product="product"/>
         <p v-else>로딩중 .......</p>
@@ -42,6 +42,6 @@ export default {
     }
 }
 </script>
-<style>
-
+<style scoped>
+    
 </style>
