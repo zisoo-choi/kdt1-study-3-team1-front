@@ -24,7 +24,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(productModule, ['board'])
+        ...mapState(productModule, ['product'])
     },
     methods: {
         ...mapActions(

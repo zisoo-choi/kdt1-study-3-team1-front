@@ -11,6 +11,14 @@
             <router-link :to="{ name: 'home' }"> 
             <v-btn color="blue lighten-1">돌아가기</v-btn> 
             </router-link>
+
+            <v-btn v-if="userToken">
+                <router-link :to="{
+                    name: 'OrderConfirmaitionPage',
+                    params: { productId }
+                }">구매하기</router-link>
+            </v-btn>
+
         </div>
     </div>
 </template>
@@ -21,7 +29,13 @@ import { mapActions, mapState } from 'vuex';
 
 const productModule = 'productModule'
 
+
 export default {
+    data() {
+        return{
+            userToken: localStorage.getItem('loginUserToken')
+        }
+    },
     components: {
         ProductReadForm
     },
@@ -32,7 +46,7 @@ export default {
         },
     },
     methods: {
-        ...mapActions( productModule, ['requestProductToSpring'])
+        ...mapActions( productModule, ['requestProductToSpring']),
     },
     computed: {
         ...mapState(productModule, ['product'])
