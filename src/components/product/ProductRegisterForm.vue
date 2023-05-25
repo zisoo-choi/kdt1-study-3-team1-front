@@ -34,6 +34,7 @@ export default {
         return {
             productName: '상품명을 입력하세요',
             productPrice: 0,
+            accountId: localStorage.getItem('loginuserId')
         }
     },
     methods: {
