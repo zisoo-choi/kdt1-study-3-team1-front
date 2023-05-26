@@ -5,7 +5,7 @@ export default {
 
     requestOrderToSpring ({}, payload) {
         const { productName, productPrice, accountId } = payload
-        return axiosInst.post('/shopping/order', { productName, productPrice, accountId})
+        return axiosInst.post('/oder/order', { productName, productPrice, accountId})
         .then((res) => {
             alert('상품 구매 성공!')
             return res
