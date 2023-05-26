@@ -29,7 +29,8 @@
 export default {
     data () {
         return {
-            accountId: localStorage.getItem('loginuserId')
+            accountId: localStorage.getItem('loginUserId'),
+            productId : product.productId
         }
     },
     props: {
@@ -40,6 +41,7 @@ export default {
     },
     methods: {
         onSubmit () {
+
             const { productId, accountId } = this
             this.$emit('submit', { productId, accountId })
         }

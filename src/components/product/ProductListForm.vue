@@ -8,7 +8,7 @@
             5. 상품 등록 버튼을 누르면 상품을 등록할 수 있는 페이지로 이동합니다.
         -->
         <h2>상품 목록</h2>
-        <table style="margine: 10px">
+        <table style="margin: 10px">
         <tr>
             <th align="center" width="10%">상품 번호</th>
             <th align="center" width="50%">상품 명</th>
@@ -24,9 +24,9 @@
                 {{ product.productId }}
             </td>
             <td align="center">
-                <router-link :to="{
+                <router-link :to="({
                     name: 'ProductReadPage',
-                    params: { productId: product.productId.toString()}}">
+                    params: { productId: product.productId.toString()}})">
                         {{ product.productName }}    
                 </router-link>
             </td>

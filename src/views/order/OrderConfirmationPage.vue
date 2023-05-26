@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h2>구매하시겠습니까?</h2>
-        <oder-confirmation-form v-if="product" :product="product" @submit="onSubmit"/>
+        <order-confirmation-form v-if="product" :product="product" @submit="onSubmit"/>
     </div>
 </template>
 <script>
@@ -15,7 +15,12 @@ export default {
     components: {
         OrderConfirmationForm,
     },
-
+    props: {
+        productId: {
+            type: String,
+            required: true,
+        }
+    },
     methods: {
         ...mapActions( productModule, ['requestProductToSpring']),
         ...mapActions( orderModule, ['requestOrderToSpring']),
@@ -23,6 +28,7 @@ export default {
         methods: {
         async onSubmit (payload) {
             await this.requestOrderToSpring(payload)
+            await this.$router.push({name:'ProductListPage'})
         }},   
     },
 
