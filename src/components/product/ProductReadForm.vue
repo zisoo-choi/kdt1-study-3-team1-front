@@ -1,17 +1,20 @@
 <template>
     <div align="center">
         <table>
-            <tr>상품 번호
+            <tr>
+                <td>상품 번호</td>
                 <td>
                     {{ product.productId }}
                 </td>
             </tr>
-            <tr>상품 명
+            <tr>
+                <td>상품 명</td>
                 <td>
                     {{ product.productName }}
                 </td>
             </tr>
-            <tr>상품 가격
+            <tr>
+                <td>상품 가격</td>
                 <td>
                     {{ product.productPrice }}
                 </td>
@@ -21,28 +24,33 @@
 </template>
 <script>
 export default {
-    props: {
-        product: {
-            type: Object,
-            required: true
+    data () {
+        return {
+            product: {productId: 1, productName: "아이스크림", productPrice: 1000}
         }
     }
+    // props: {
+    //     product: {
+    //         type: Object,
+    //         required: true
+    //     }
+    // }
 }
 </script>
-<style>
+<style scoped>
     table{
     width: 75%;
-    text-align : left;
+    text-align : center;
     }
-    tanle th{
+    table tr{
         padding : 12px;
-        border-bottom: 2px solid  darkgray;
+        background-color: aliceblue;
+           
     }
     table td{
         padding : 12px;
-    }
-    table tr:nth-of-type(even){
-        background-color: rgba(0,0,255,0.1);
+        border-bottom: 2px solid  darkgray;
+        border-left: 2px solid  darkgray;
     }
     
 </style>
