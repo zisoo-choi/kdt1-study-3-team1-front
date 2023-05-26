@@ -26,15 +26,16 @@
 export default {
     data () {
         return {
-            product: {productId: 1, productName: "아이스크림", productPrice: 1000}
+            // 테스트용
+            // product: {productId: 1, productName: "아이스크림", productPrice: 1000}
+        }
+    },
+    props: {
+        product: {
+            type: Object,
+            required: true
         }
     }
-    // props: {
-    //     product: {
-    //         type: Object,
-    //         required: true
-    //     }
-    // }
 }
 </script>
 <style scoped>
