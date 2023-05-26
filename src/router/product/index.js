@@ -22,7 +22,12 @@ const productRoutes = [
       {
         path: "/product-modify-page",
         name: "ProductModifyPage",
-        component: ProductModifyPage,
+        components: {
+          default: ProductModifyPage,
+          },
+          props: {
+              default: true,
+          }    
       },
       {
         path: "/product-read-page",

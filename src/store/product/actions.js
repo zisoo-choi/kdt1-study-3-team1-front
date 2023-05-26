@@ -20,17 +20,18 @@ export default {
     },
     requestRegisterProductToSpring ({}, payload) {
 
-        const { productName, productPrice, token } = payload
+        const { productName, productPrice, accountId } = payload
 
         return axiosInst.post('/product/product-register', { productName, productPrice, accountId})
         .then((res) => {
             alert('상품 등록 성공!')
-            return res
+            return res.data
         })
         .catch(() => {
             alert('등록 실패')
         })
     },
+
     requestDeleteProductToSpring ({}, productId) {
         return axiosInst.delete(`/product/${productId}`)
             .then((res) => {
@@ -42,4 +43,15 @@ export default {
                 alert('문제 발생!')
             })
     },
+    requestProductModifyToSpring({}, payload) {
+        const { productName, productPrice, accountId } = payload
+
+        return axiosInst.put('/product/product-update', {productName, productPrice, accountId})
+        .then ((res) => {
+            alert('수정 성공!')
+        })
+        .catch (() => {
+            alert('수정 실패!')
+        })
+    }
 }
