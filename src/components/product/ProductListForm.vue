@@ -10,9 +10,9 @@
         <h2>상품 목록</h2>
         <table style="margine: 10px">
         <tr>
-            <th align="center" width="3%">상품 번호</th>
-            <th align="center" width="40%">상품 명</th>
-            <th align="center" width="30%">상품 가격</th>
+            <th align="center" width="10%">상품 번호</th>
+            <th align="center" width="50%">상품 명</th>
+            <th align="center" width="40%">상품 가격</th>
         </tr>
         <tr v-if="products || (Array.isArray(products) && products.length === 0)">
             <td colspan="3">
@@ -47,6 +47,19 @@ export default {
 }
     
 </script>
-<style lang="">
-    
+<style scoped>
+    table{
+    width: 75%;
+    text-align : left;
+    }
+    table th{
+        padding : 12px;
+        border-bottom: 2px solid  darkgray;
+    }
+    table td{
+        padding : 12px;
+    }
+    table tr:nth-of-type(even){
+        background-color: rgba(0,0,255,0.1);
+    }
 </style>
