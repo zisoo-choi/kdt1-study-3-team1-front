@@ -14,7 +14,7 @@
             <th align="center" width="50%">상품 명</th>
             <th align="center" width="40%">상품 가격</th>
         </tr>
-        <tr v-if="products || (Array.isArray(products) && products.length === 0)">
+        <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
             <td colspan="3">
                 로딩 중입니다.
             </td>
@@ -27,7 +27,7 @@
                 <router-link :to="{
                     name: 'ProductReadPage',
                     params: { productId: product.productId.toString()}}">
-                        {{ product.title }}    
+                        {{ product.productName }}    
                 </router-link>
             </td>
             <td align="center">

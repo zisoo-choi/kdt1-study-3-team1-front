@@ -5,14 +5,14 @@
         <p v-else>로딩중 .......</p>
         <div>
             <router-link :to="{ name: 'ProductModifyPage', params: { productId } }">
-            <v-btn v-if="!isBusiness" color="blue lighten-3">수정하기</v-btn> 
+                <v-btn v-if="isBusiness" color="blue lighten-3">수정하기</v-btn> 
             </router-link>
-            <v-btn v-if="!isBusiness" color="blue lighten-2">삭제하기</v-btn>
+            <v-btn v-if="isBusiness" color="blue lighten-2" @click="onDelete">삭제하기</v-btn>
             <router-link :to="{ name: 'home' }"> 
             <v-btn color="blue lighten-1">돌아가기</v-btn> 
             </router-link>
 
-            <v-btn v-if="isBusiness">
+            <v-btn v-if="!isBusiness">
                 <router-link :to="{
                     name: 'OrderConfirmaitionPage',
                     params: { productId }
@@ -33,7 +33,7 @@ const productModule = 'productModule'
 export default {
     data() {
         return{
-            isBusiness: false,
+            isBusiness: false,            
             roleType: localStorage.getItem('roleType')
         }
     },
@@ -47,7 +47,13 @@ export default {
         },
     },
     methods: {
-        ...mapActions( productModule, ['requestProductToSpring']),
+        ...mapActions( productModule, ['requestProductToSpring', 'requestDeleteProductToSpring']),
+
+        onDelete() {
+            
+            this.requestDeleteProductToSpring(this.productId)
+        }
+        
     },
     computed: {
         ...mapState(productModule, ['product'])
@@ -55,9 +61,9 @@ export default {
     mounted() {
         this.requestProductToSpring(this.productId)
         if (localStorage.getItem("roleType") == BUSINESS) {
-            this.isBusiness = false;
-            } else {
             this.isBusiness = true;
+            } else {
+            this.isBusiness = false;
             }
     }
 }
