@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import accountRoutes from './account'
 import productRoutes from './product'
+import orderRoutes from './order'
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,8 @@ const routes = [
   },
 
   ...accountRoutes,
-  ...productRoutes
+  ...productRoutes,
+  ...orderRoutes
 ]
 
 const router = new VueRouter({
