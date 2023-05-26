@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 import productModule from './product/ProductModule'
 import AccountModule from './account/AccountModule'
-import OrderModule from './order/OderModule'
+import OrderModule from './order/OrderModule'
 
 Vue.use(Vuex)
 

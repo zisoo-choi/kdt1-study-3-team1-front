@@ -1,4 +1,5 @@
 import axiosInst from '@/utility/axiosInst'
+import { REQUEST_ORDER_LIST_TO_SPRING } from './mutation-types'
 
 export default {
 
@@ -11,6 +12,14 @@ export default {
         })
         .catch(() => {
             alert('구매 실패')
+        })
+    },
+
+    requestOrderListToSpring ({commit}, payload) {
+        const { accountId } = payload
+        return axiosInst.get('/order/list', {accountId})
+        .then((res) => {
+            commit(REQUEST_ORDER_LIST_TO_SPRING, res.data)
         })
     }
 

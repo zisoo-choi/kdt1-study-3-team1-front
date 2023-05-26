@@ -21,7 +21,9 @@ export default {
         if (res.data != null) {
           alert("로그인 성공!");
           let accountId = res.data.accountId;
+          let roleType = res.data.roleType;
           localStorage.setItem("loginUserId", accountId);
+          localStorage.setItem("loginUserRoleType", roleType)
         } else {
           alert("로그인 실패!");
         }

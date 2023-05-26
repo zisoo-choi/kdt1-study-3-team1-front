@@ -1,13 +1,13 @@
 <template lang="">
     <div align="center">
         <h2>상품 정보</h2>
-        <ProductReadForm v-if="product" :product="product"/>
+        <ProductReadForm v-if="!product" :product="product"/>
         <p v-else>로딩중 .......</p>
         <div>
             <router-link :to="{ name: 'ProductModifyPage', params: { productId } }">
-            <v-btn color="blue lighten-3">수정하기</v-btn> 
+            <v-btn v-if="!isBusiness" color="blue lighten-3">수정하기</v-btn> 
             </router-link>
-            <v-btn color="blue lighten-2">삭제하기</v-btn>
+            <v-btn v-if="!isBusiness" color="blue lighten-2">삭제하기</v-btn>
             <router-link :to="{ name: 'home' }"> 
             <v-btn color="blue lighten-1">돌아가기</v-btn> 
             </router-link>
@@ -33,6 +33,7 @@ const productModule = 'productModule'
 export default {
     data() {
         return{
+            isBusiness: false,
             roleType: localStorage.getItem('roleType')
         }
     },
