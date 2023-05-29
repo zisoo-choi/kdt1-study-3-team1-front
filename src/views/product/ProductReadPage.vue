@@ -1,20 +1,20 @@
 <template lang="">
     <div align="center">
         <h2>상품 정보</h2>
-        <ProductReadForm v-if="!product" :product="product"/>
+        <ProductReadForm v-if="product" :product="product"/>
         <p v-else>로딩중 .......</p>
         <div>
             <router-link :to="{ name: 'ProductModifyPage', params: { productId } }">
                 <v-btn v-if="isBusiness" color="blue lighten-3">수정하기</v-btn> 
             </router-link>
             <v-btn v-if="isBusiness" color="blue lighten-2" @click="onDelete">삭제하기</v-btn>
-            <router-link :to="{ name: 'home' }"> 
+            <router-link :to="{ name: 'ProductListPage' }"> 
             <v-btn color="blue lighten-1">돌아가기</v-btn> 
             </router-link>
 
             <v-btn v-if="!isBusiness">
                 <router-link :to="{
-                    name: 'OrderConfirmaitionPage',
+                    name: 'OrderConfirmationPage',
                     params: { productId }
                 }">구매하기</router-link>
             </v-btn>
@@ -34,7 +34,6 @@ export default {
     data() {
         return{
             isBusiness: false,            
-            roleType: localStorage.getItem('roleType')
         }
     },
     components: {
@@ -58,14 +57,16 @@ export default {
     computed: {
         ...mapState(productModule, ['product'])
     },
-    mounted() {
+    created() {
         this.requestProductToSpring(this.productId)
-        if (localStorage.getItem("roleType") == BUSINESS) {
+    },
+    mounted() {
+        if (localStorage.getItem("loginUserRoleType") == "BUSINESS") {
             this.isBusiness = true;
             } else {
             this.isBusiness = false;
             }
-    }
+    },
 }
 </script>
 <style scoped>
