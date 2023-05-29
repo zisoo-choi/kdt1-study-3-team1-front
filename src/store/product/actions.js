@@ -25,7 +25,7 @@ export default {
         return axiosInst.post('/product/product-register', { productName, productPrice, accountId})
         .then((res) => {
             alert('상품 등록 성공!')
-            return res.data
+            return res
         })
         .catch(() => {
             alert('등록 실패')

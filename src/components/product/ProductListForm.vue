@@ -31,7 +31,7 @@
                 </router-link>
             </td>
             <td align="center">
-                {{ product.price }}
+                {{ product.productPrice }}
             </td>
         </tr>
     </table>
