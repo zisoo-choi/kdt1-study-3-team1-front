@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import OrderConfirmationForm from '@/components/order/OrderConfirmationForm.vue';
 
 const productModule = 'productModule'

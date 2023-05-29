@@ -19,6 +19,7 @@ export default {
     components: { ProductListForm },
     data () {
         return {
+            isBusiness: false
         }
     },
     computed: {
@@ -26,7 +27,7 @@ export default {
     },
     mounted () {
         this.requestProductListToSpring()
-        if (localStorage.getItem("roleType") == BUSINESS) {
+        if (localStorage.getItem("loginUserRoleType") == "BUSINESS") {
             this.isBusiness = true;
             } else {
             this.isBusiness = false;
