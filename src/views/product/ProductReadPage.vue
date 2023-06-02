@@ -31,19 +31,23 @@ const productModule = 'productModule'
 
 
 export default {
-    data() {
-        return{
-            isBusiness: false,            
-        }
-    },
-    components: {
-        ProductReadForm
-    },
     props: {
         productId: {
             type: String,
             required: true,
         },
+    },
+    // computed: {
+    //     ...mapState(productModule, ['product']),
+    // },
+    data() {
+        return{
+            isBusiness: false,
+            product: {},  
+        }
+    },
+    components: {
+        ProductReadForm
     },
     methods: {
         ...mapActions( productModule, ['requestProductToSpring', 'requestDeleteProductToSpring']),
@@ -51,22 +55,15 @@ export default {
         onDelete() {
             
             this.requestDeleteProductToSpring(this.productId)
-        }
+        },
         
     },
-    computed: {
-        ...mapState(productModule, ['product'])
+    async created() {
+        this.product = await this.requestProductToSpring(this.productId)
+        console.log("아이디" + this.productId)
+        console.log("이름:" + JSON.stringify(this.product))
     },
-    created() {
-        this.requestProductToSpring(this.productId)
-    },
-    mounted() {
-        if (localStorage.getItem("loginUserRoleType") == "BUSINESS") {
-            this.isBusiness = true;
-            } else {
-            this.isBusiness = false;
-            }
-    },
+
 }
 </script>
 <style scoped>

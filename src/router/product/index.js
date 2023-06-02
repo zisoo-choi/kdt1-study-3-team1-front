@@ -30,7 +30,7 @@ const productRoutes = [
           }    
       },
       {
-        path: "/product-read-page",
+        path: "/product-read-page/:productId",
         name: "ProductReadPage",
         components: {
             default: ProductReadPage,

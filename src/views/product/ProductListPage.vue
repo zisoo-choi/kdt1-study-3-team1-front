@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <h2> 상품 게시판 </h2>
-        <div style="text-align: left; margin: 15px;" v-if="isBusiness">
+        <div style="text-align: left; margin: 15px;">
             <router-link :to="{ name: 'ProductRegisterPage' }">
                     상품 등록
             </router-link>
@@ -19,25 +19,23 @@ export default {
     components: { ProductListForm },
     data () {
         return {
-            isBusiness: false
+            isBusiness: false,
+            products: [],
         }
     },
-    computed: {
-        ...mapState(productModule, ['products'])
-    },
-    mounted () {
-        this.requestProductListToSpring()
-        if (localStorage.getItem("loginUserRoleType") == "BUSINESS") {
-            this.isBusiness = true;
-            } else {
-            this.isBusiness = false;
-            }
+    async mounted () {
+        this.products = await this.requestProductListToSpring()
+        console.log(this.products)
     },
     methods: {
         ...mapActions(
             productModule, ['requestProductListToSpring']
         )
-    }
+    },
+    // computed: {
+    //     ...mapState(productModule, ['products'])
+    // },
+
 }
 </script>
 <style lang="">
