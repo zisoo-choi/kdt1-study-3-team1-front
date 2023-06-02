@@ -5,7 +5,7 @@ export default {
 
     requestOrderToSpring ({}, payload) {
         const { productId, accountId } = payload
-        return axiosInst.post('/order/order', { productId, accountId})
+        return axiosInst.post('/order/order-product', { productId, accountId})
         .then((res) => {
             alert('상품 구매 성공!')
         })
@@ -14,11 +14,11 @@ export default {
         })
     },
 
-    requestOrderListToSpring ({commit}, payload) {
-        const { accountId } = payload
-        return axiosInst.get('/order/list', {accountId})
+    requestOrderListToSpring ({commit}, accountId) {
+        return axiosInst.get(`/order/list/${accountId}`)
         .then((res) => {
             commit(REQUEST_ORDER_LIST_TO_SPRING, res.data)
+            return res.data
         })
     }
 

@@ -19,12 +19,12 @@
                 <td align="center">
                     <router-link :to="({
                         name: 'ProductReadPage',
-                        params: { productId: order.product.productId.toString() }})">
-                    {{ order.product.productName }}
+                        params: { productId: order.productId }})">
+                    {{ order.productName }}
                     </router-link>
                 </td>
                 <td align="center">
-                    {{ order.product.productPrice }}
+                    {{ order.productPrice }}
                 </td>
                 <td align="center">
                     {{ order.orderDate }}
