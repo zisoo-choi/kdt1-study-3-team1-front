@@ -47,9 +47,9 @@ export default {
             })
     },
     requestProductModifyToSpring({}, payload) {
-        const { productName, productPrice, accountId } = payload
+        const { productId, productName, productPrice, accountId } = payload
 
-        return axiosInst.put('/product/product-update', {productName, productPrice, accountId})
+        return axiosInst.put('/product/product-update', {productId, productName, productPrice, accountId})
         .then ((res) => {
             alert('수정 성공!')
         })

@@ -5,28 +5,27 @@
                 <tr>
                     <td>상품 번호</td>
                     <td>
-                        <input type="text" :value="product.productId" disable/>
+                        <input type="text" v-model="product.productId" disable/>
                     </td>
                 </tr>
                 <tr>
                     <td>상품명</td>
                     <td>
-                        <input type="text" :value="product.productName" disable/>
+                        <input type="text" v-model="product.productName"/>
                     </td>
                 </tr>
                 <tr>
                     <td>상품 가격</td>
                     <td>
-                        <input type="number" v-model="productPrice">
+                        <input type="number" v-model="product.productPrice">
                     </td>
                 </tr>
             </table>
             <div>
                 <button type="submit">수정 완료</button>
-                <router-link :to="{
+                <router-link :to="({
                     name: 'ProductReadPage',
-                    params: { productId: product.productId.toString() }
-                }">
+                    params: { productId: product.productId}})">
                 수정 취소
                 </router-link>
             </div>
@@ -47,16 +46,19 @@ export default {
         return {
             productName: '',
             productPrice: '',
+            productId: '',
+            accountId: localStorage.getItem('loginUserId')
         }
     },
     created () {
+        this.productId = this.product.productId
         this.productName = this.product.productName
         this.productPrice = this.product.productPrice
     },
     methods: {
         onSubmit () {
-            const { productName, productPrice } = this
-            this.$emit('submit', { productName, productPrice})
+            const { accountId, productId, productName, productPrice } = this
+            this.$emit('submit', { accountId, productId, productName, productPrice})
         }
     }
 }
