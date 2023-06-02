@@ -5,14 +5,14 @@
         <p v-else>로딩중 .......</p>
         <div>
             <router-link :to="{ name: 'ProductModifyPage', params: { productId } }">
-                <v-btn v-if="isBusiness" color="blue lighten-3">수정하기</v-btn> 
+                <v-btn color="blue lighten-3">수정하기</v-btn> 
             </router-link>
-            <v-btn v-if="isBusiness" color="blue lighten-2" @click="onDelete">삭제하기</v-btn>
+            <v-btn color="blue lighten-2" @click="onDelete">삭제하기</v-btn>
             <router-link :to="{ name: 'ProductListPage' }"> 
             <v-btn color="blue lighten-1">돌아가기</v-btn> 
             </router-link>
 
-            <v-btn v-if="!isBusiness">
+            <v-btn>
                 <router-link :to="{
                     name: 'OrderConfirmationPage',
                     params: { productId }
@@ -33,7 +33,7 @@ const productModule = 'productModule'
 export default {
     props: {
         productId: {
-            type: String,
+            type: Number,
             required: true,
         },
     },
@@ -42,7 +42,6 @@ export default {
     // },
     data() {
         return{
-            isBusiness: false,
             product: {},  
         }
     },
