@@ -1,5 +1,5 @@
 <template lang="">
-    <div>
+    <div align="center">
         <h2> 상품 게시판 </h2>
         <div style="text-align: left; margin: 15px;">
             <router-link :to="{ name: 'ProductRegisterPage' }">
@@ -19,7 +19,6 @@ export default {
     components: { ProductListForm },
     data () {
         return {
-            isBusiness: false,
             products: [],
         }
     },

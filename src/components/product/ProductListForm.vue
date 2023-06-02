@@ -26,7 +26,7 @@
             <td align="center">
                 <router-link :to="({
                     name: 'ProductReadPage',
-                    params: { productId: product.productId.toString()}})">
+                    params: { productId: product.productId}})">
                         {{ product.productName }}    
                 </router-link>
             </td>
