@@ -8,6 +8,7 @@ export default {
         state.products = recievedData
     },
     [REQUEST_PRODUCT_TO_SPRING] (state, recievedData) {
+        console.log("state 에서: " + recievedData.productId)
         state.product = recievedData
     }
 }

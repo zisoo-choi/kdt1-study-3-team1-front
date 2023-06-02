@@ -12,12 +12,17 @@ const productModule = 'productModule'
 const orderModule = 'orderModule'
 
 export default {
+    data () {
+        return {
+            product: {}
+        }
+    },
     components: {
         OrderConfirmationForm,
     },
     props: {
         productId: {
-            type: String,
+            type: Number,
             required: true,
         }
     },
@@ -25,19 +30,18 @@ export default {
         ...mapActions( productModule, ['requestProductToSpring']),
         ...mapActions( orderModule, ['requestOrderToSpring']),
 
-        methods: {
         async onSubmit (payload) {
             await this.requestOrderToSpring(payload)
             await this.$router.push({name:'ProductListPage'})
-        }},   
+        },   
     },
 
-    computed: {
-        ...mapState(productModule, ['product'])
-    },    
+    // computed: {
+    //     ...mapState(productModule, ['product'])
+    // },    
 
-    mounted() {
-        this.requestProductToSpring(this.productId)
+    async mounted() {
+        this.product = await this.requestProductToSpring(this.productId)
         
     }
 }

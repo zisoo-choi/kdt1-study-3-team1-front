@@ -4,19 +4,19 @@
             <tr>
                 <td>상품 번호</td>
                 <td>
-                    {{ product.productId }}
+                    <input type="text" :value="product.productId" readonly />
                 </td>
             </tr>
             <tr>
                 <td>상품 명</td>
                 <td>
-                    {{ product.productName }}
+                    <input type="text" :value="product.productName" readonly />
                 </td>
             </tr>
             <tr>
                 <td>상품 가격</td>
                 <td>
-                    {{ product.productPrice }}
+                    <input type="text" :value="product.productPrice" readonly />
                 </td>
             </tr>
         </table>

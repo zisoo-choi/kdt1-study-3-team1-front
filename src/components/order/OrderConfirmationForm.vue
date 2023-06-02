@@ -1,25 +1,28 @@
 <template lang="">
     <div align="center">
-        <table>
-            <tr>
-                <td>상품 번호</td>
-                <td>
-                    {{ product.productId }}
-                </td>
-            </tr>
-            <tr>
-                <td>상품 명</td>
-                <td>
-                    {{ product.productName }}
-                </td>
-            </tr>
-            <tr>
-                <td>상품 가격</td>
-                <td>
-                    {{ product.productPrice }}
-                </td>
-            </tr>
-        </table>
+        <form @submit.prevent="onSubmit">
+            <table>
+                <tr>
+                    <td>상품 번호</td>
+                    <td>
+                        {{ product.productId }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>상품 명</td>
+                    <td>
+                        {{ product.productName }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>상품 가격</td>
+                    <td>
+                        {{ product.productPrice }}
+                    </td>
+                </tr>
+            </table>
+            <v-btn type="submit">구매하기</v-btn>
+        </form>
     </div>
 </template>
 
@@ -30,7 +33,6 @@ export default {
     data () {
         return {
             accountId: localStorage.getItem('loginUserId'),
-            productId : product.productId
         }
     },
     props: {
@@ -41,8 +43,8 @@ export default {
     },
     methods: {
         onSubmit () {
-
-            const { productId, accountId } = this
+            const productId = this.product.productId
+            const accountId = this.accountId
             this.$emit('submit', { productId, accountId })
         }
     }

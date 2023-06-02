@@ -8,14 +8,17 @@ import axiosInst from '@/utility/axiosInst'
 export default {
     requestProductToSpring ({ commit }, productId) {
         return axiosInst.get(`/product/${productId}`)
-        .then((res) => {
-            commit(REQUEST_PRODUCT_TO_SPRING, res.data)
+        .then((resRead) => {
+            console.log("action에서: " + resRead.data.productId)
+            commit(REQUEST_PRODUCT_TO_SPRING, resRead.data)
+            return resRead.data
         })
     },
     requestProductListToSpring({commit}) {
-        axiosInst.get('/product/list')
-        .then((res) => {
-            commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
+        return axiosInst.get('/product/list')
+        .then((resList) => {
+            commit(REQUEST_PRODUCT_LIST_TO_SPRING, resList.data)
+            return resList.data
         })
     },
     requestRegisterProductToSpring ({}, payload) {
@@ -44,9 +47,9 @@ export default {
             })
     },
     requestProductModifyToSpring({}, payload) {
-        const { productName, productPrice, accountId } = payload
+        const { productId, productName, productPrice, accountId } = payload
 
-        return axiosInst.put('/product/product-update', {productName, productPrice, accountId})
+        return axiosInst.put('/product/product-update', {productId, productName, productPrice, accountId})
         .then ((res) => {
             alert('수정 성공!')
         })
