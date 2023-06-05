@@ -3,9 +3,11 @@ services:
   frontend:
     image: ghcr.io/zisoo-choi/kdt1-study-3-team1-front:latest
     container_name: docker-frontend-deploy-server
+    ports:
+      - "80:80"
     networks:
       - app
-  
+
 networks:
   app:
     driver: bridge
