@@ -1,11 +1,11 @@
 <template lang="">
   <div>
     <router-link :to="{ name: 'SignUpPage' }">
-      <v-btn v-if="!isLoggedIn" color="primary">회원 가입</v-btn>
+      <v-btn v-if="!isLoggedIn" color="primary">회원 가입 버튼</v-btn>
     </router-link> <br>
     <LoginForm @click="login" />
     <router-link :to="{ name: 'ProductListPage' }">
-      <v-btn v-if="isLoggedIn" color="primary">상품 보기</v-btn>
+      <v-btn v-if="isLoggedIn" color="primary">상품 보기 버튼</v-btn>
     </router-link> <br>
   </div>
 </template>
