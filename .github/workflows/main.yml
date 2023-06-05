@@ -80,7 +80,7 @@ jobs:
 
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-            docker pull ghcr.io/zisoo-choi/kdt1-study-3-team1-front:latset
+            docker pull ghcr.io/zisoo-choi/kdt1-study-3-team1-front:latest
 
             docker image prune -f
             docker logout
