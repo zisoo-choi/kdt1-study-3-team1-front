@@ -22,7 +22,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
         
       - name: Cache Docker Layers
-        uses: actions/checkout@v2
+        uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
           key: $ {{ runner.os }}--buildx-${{ env.VERSION }} # runner
