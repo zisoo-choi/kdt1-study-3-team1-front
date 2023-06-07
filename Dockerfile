@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 FROM node:18-alpine AS build-stage
+=======
+FROM node:18 AS build-stage
+>>>>>>> Stashed changes
 
 # Vue.js 애플리케이션을 정적 파일로 제공할 디렉토리를 생성합니다.
 WORKDIR /app
@@ -7,10 +11,17 @@ RUN npm install
 COPY . .
 RUN npm run build
 
+<<<<<<< Updated upstream
+=======
+# nginx를 실행합니다.
+>>>>>>> Stashed changes
 FROM nginx as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
+<<<<<<< Updated upstream
 # nginx를 실행합니다.
+=======
+>>>>>>> Stashed changes
 CMD ["nginx", "-g", "daemon off;"]
